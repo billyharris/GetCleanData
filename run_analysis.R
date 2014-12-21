@@ -1,5 +1,3 @@
-setwd("/home/billy/Documents/Coursera Data Science/GettingCleaningData/Project/Data/")
-
 # The following script assumes the unzipped file folder UCI HAR Dataset is
 # located in your working directory. i.e. you are in the parent directory of the
 # folder. This will ensure any saved R outputs are kept separate from the data.
