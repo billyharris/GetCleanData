@@ -1,0 +1,28 @@
+---
+title: "README"
+author: "Billy Harris"
+date: "20/12/2014"
+output: html_document
+---
+
+##Samsung accelerometer study##
+
+**Constructing the tidy data set with R**
+
+The R script is annotated - this section provides a brief summary of the steps taken. Please note that this script should be run in the parent dircetory of the "UCI HAR Dateset" directory.
+The script operates to produce a tidy data set as follows:
+
+1. Load the list of variable names from features.txt
+2. Select the numeric indices of the variables wanted using grep to exclude the meanFreq variables and then select all remaining variables for mean and standard deviation.
+3. Read in the descriptive activity labels from activity_labels.txt
+4. Load the id data for the training dataset (subject_train.txt), create a new variable to label the cases by original dataset and import the activity data for the training dataset (y_train.txt)
+5. Factorise the activity data from step 4 using the labels from step 3
+6. Read in the accelerometer data from the training dataset (X_train.txt) and name the variables using the list from step 1.
+7. Trim the variables in the step 6 data frame to include only those indexed in step 2.
+8. Join the id, dataset, activity and accelerometer data (using cbind) to create a data frame for training.
+9. Repeat steps 4 - 8 using the test data to create a test data set.
+10. Merge into a single data set (samsung_data) using rbind, and manually rename the variables to be neater and remove brackets etc
+
+-- This effectively creates a data set corresponding to the requirement of step 4 of the project outputs
+
+11. Use the aggregate function to calculate the average scores on each variable for each participant / activity pair using the aggregate command.

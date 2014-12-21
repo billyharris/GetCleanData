@@ -1,0 +1,105 @@
+---
+title: "Codebook"
+author: "Billy Harris"
+date: "20/12/2014"
+output: html_document
+---
+
+##Samsung accelerometer study##
+
+**General note on the data**
+
+When interpreting variables it is important to understand that the results in the final dataset (samsung_data_condensed) present aggregated (average) data from observations of each subject / activity-type 
+pair. Every data point below is therefore a mean of a number of observations. 
+In the data, therefore, the "mean" and "standard deviation" data represent the average (mean) of the mean and standard deviation data for that subject / activity in the larger dataset. 
+(This larger dataset, with multiple observations for each participant and activity, can be generated using the associated script and is named samsung_data.)
+
+The data that is summarised in this way is itself structured as mean and standard deviation variables - this is because each of the multiple data points in the original date set
+represents summary statistics for a set of 128 observations from the smartphone acelerometer. This is why the condensed data contains mean data on standard deviations
+ (of the 128 data points from the acccelerometer).
+A more detailed discussion of the dataset itself can be found at http://http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+**Variable names and units**
+
+The variables in columns 4-69 follow a specific naming convention, with each made up of up to four elements as follows:
+
+1. Whether the data is raw time-series data (prefix t) or Fourier transformed data (prefix f). 
+1. The property being measured (e.g. Body acceleration). These are described below.
+2. The descriptive statistic presented on this property (mean [mean] or standard deviation [sd]).
+3. The axis of measurement (X,Y,Z).
+
+For example, the mean of the time series data for Body Acceleration along the X axis has label t.BodyAcc.mean.Y.
+
+The variables follow below:
+
+
+| Name                   | Type           | Units       | Description |
+| -------------          |:-------------: |:-----       |:-------------|
+| id                     | integer        | NA          | Unique identifier for each of the 30 individual subjects. |
+| dataset                | factor         | NA          | Describes the original dataset case was drawn from.|
+| activity               | factor         | NA          | Type of activity when measurement was made. (WALKING; WALKING_UPSTAIRS; WALKING_DOWNSTAIRS; SITTING; STANDING; LAYING)|
+| t.BodyAcc.mean.X	     | numeric        | Gravity (g) | Body acceleration, mean, X axis. Time data.|
+| t.BodyAcc.mean.Y	     | numeric        |	Gravity (g) |		Body acceleration, mean, Y axis. Time data.|
+| t.BodyAcc.mean.Z	     | numeric        | Gravity (g) |     Body acceleration, mean, X axis. Time data.|
+| t.BodyAcc.sd.X	     | numeric        |	Gravity (g) |		Body acceleration, standard deviation, X axis. Time data.|
+| t.BodyAcc.sd.Y         | numeric	      |	Gravity (g) |		Body acceleration, standard deviation, Y axis. Time data.|
+| t.BodyAcc.sd.Z	     | numeric	      |	Gravity (g) |		Body acceleration, standard deviation, Z axis. Time data.|
+| t.GravityAcc.mean.X	 | numeric	      |	Gravity (g)	|	Gravity acceleration, mean, X axis. Time data.|
+| t.GravityAcc.mean.Y	 | numeric        |	Gravity (g)	|	Gravity acceleration, mean, Y axis. Time data.|
+| t.GravityAcc.mean.Z  	 | numeric        | Gravity (g) |		Gravity acceleration, standard deviation, X axis. Time data. |                
+| t.GravityAcc.sd.Y		 | numeric        | Gravity (g) |		Gravity acceleration, standard deviation, Y axis. Time data. |
+| t.GravityAcc.sd.Z    	 | numeric | Gravity (g) |		Gravity acceleration, standard deviation, Z axis. Time data. |              
+| t.BodyAccJerk.mean.X					| numeric | Gravity (g) |		Jerk factor of body acceleration, mean, X axis. Time data. |
+| t.BodyAccJerk.mean.Y					| numeric | Gravity (g) |		Jerk factor of body acceleration, mean, Y axis. Time data. |
+| t.BodyAccJerk.mean.Z  				| numeric | Gravity (g) |		Jerk factor of body acceleration, mean, Z axis. Time data. |              
+| t.BodyAccJerk.sd.X					| numeric | Gravity (g) |		Jerk factor of body acceleration, standard deviation, X axis. Time data. |
+| t.BodyAccJerk.sd.Y					| numeric | Gravity (g) |		Jerk factor of body acceleration, standard deviation, Y axis. Time data. |
+| t.BodyAccJerk.sd.Z                 	| numeric | Gravity (g) |		Jerk factor of body acceleration, standard deviation, Z axis. Time data. |
+| t.BodyGyro.mean.X					| numeric | Radians/sec |		Body angular velocity, mean, X axis. Time data. |
+| t.BodyGyro.mean.Y					| numeric | Radians/sec |		Body angular velocity, mean, Y axis. Time data. |
+| t.BodyGyro.mean.Z                  	| numeric | Radians/sec |		Body angular velocity, mean, Z axis. Time data. |
+| t.BodyGyro.sd.X						| numeric | Radians/sec |		Body angular velocity, standard deviation, X axis. Time data. |
+| t.BodyGyro.sd.Y						| numeric | Radians/sec |		Body angular velocity, standard deviation, Y axis. Time data. |
+| t.BodyGyro.sd.Z                    	| numeric | Radians/sec |		Body angular velocity, standard deviation, Z axis. Time data. |
+| t.BodyGyroJerk.mean.X				| numeric | Radians/sec |		Jerk factor of body angular velocity, mean, X axis. Time data. |
+| t.BodyGyroJerk.mean.Y				| numeric | Radians/sec |		Jerk factor of body angular velocity, mean, Y axis. Time data. |
+| t.BodyGyroJerk.mean.Z              	| numeric | Radians/sec |		Jerk factor of body angular velocity, mean, Z axis. Time data. |
+| t.BodyGyroJerk.sd.X					| numeric | Radians/sec |		Jerk factor of body angular velocity, standard deviation, X axis. Time data. |
+| t.BodyGyroJerk.sd.Y					| numeric | Radians/sec |		Jerk factor of body angular velocity, standard deviation, Y axis. Time data. |
+| t.BodyGyroJerk.sd.Z                	| numeric | Radians/sec |		Jerk factor of body angular velocity, standard deviation, Z axis. Time data. |
+| t.BodyAccMag.mean					| numeric | Gravity (g) |		Magnitude of combined-axis body acceleration, mean. Time data. |
+| t.BodyAccMag.sd						| numeric | Gravity (g) |		Magnitude of combined-axis body acceleration, standard deviation. Time data. |
+| t.GravityAccMag.mean               	| numeric | Gravity (g) |		Magnitude of combined-axis gravity acceleration, mean. Time data. |
+| t.GravityAccMag.sd					| numeric | Gravity (g) |		Magnitude of combined-axis gravity acceleration, standard deviation. Time data. |
+| t.BodyAccJerkMag.mean				| numeric | Gravity (g) |		Jerk factor of combined-axis body acceleration, mean. Time data. |
+| t.BodyAccJerkMag.sd                	| numeric | Gravity (g) |		Jerk factor of combined-axis body acceleration, standard deviation. Time data. |
+| t.BodyGyroMag.mean					| numeric | Radians/sec |		Magnitude of combined-axis body angular velocity, mean. Time data. |
+| t.BodyGyroMag.sd					| numeric | Radians/sec |		Magnitude of combined-axis body angular velocity, standard deviation. Time data. |
+| t.BodyGyroJerkMag.mean             	| numeric | Radians/sec |		Jerk factor of combined-axis body angular velocity, mean. Time data. |
+| t.BodyGyroJerkMag.sd				| numeric | Radians/sec |		Jerk factor of combined-axis body angular velocity, standard deviation. Time data. |
+| f.BodyAcc.mean.X					| numeric | Gravity (g) |		Body acceleration, mean, X axis. Frequency data. |
+| f.BodyAcc.mean.Y                   	| numeric | Gravity (g) |		Body acceleration, mean, Y axis. Frequency data. |
+| f.BodyAcc.mean.Z					| numeric | Gravity (g) |		Body acceleration, mean, Z axis. Frequency data. |
+| f.BodyAcc.sd.X						| numeric | Gravity (g) |		Body acceleration, standard deviation, X axis. Frequency data. |
+| f.BodyAcc.sd.Y                     	| numeric | Gravity (g) |		Body acceleration, standard deviation, Y axis. Frequency data. |
+| f.BodyAcc.sd.Z						| numeric | Gravity (g) |		Body acceleration, standard deviation, Z axis. Frequency data. |
+| f.BodyAccJerk.mean.X				| numeric | Gravity (g) |		Jerk factor of body acceleration, mean, X axis. Frequency data. |
+| f.BodyAccJerk.mean.Y               	| numeric | Gravity (g) |		Jerk factor of body acceleration, mean, Y axis. Frequency data. |
+| f.BodyAccJerk.mean.Z				| numeric | Gravity (g) |		Jerk factor of body acceleration, mean, Z axis. Frequency data. |
+| f.BodyAccJerk.sd.X					| numeric | Gravity (g) |		Jerk factor of body acceleration, standard deviation, X axis. Frequency data. |
+| f.BodyAccJerk.sd.Y                 	| numeric | Gravity (g) |		Jerk factor of body acceleration, standard deviation, Y axis. Frequency data. |
+| f.BodyAccJerk.sd.Z					| numeric | Gravity (g) |		Jerk factor of body acceleration, standard deviation, Z axis. Frequency data. |
+| f.BodyGyro.mean.X					| numeric | Radians/sec |		Body angular velocity, mean, X axis. Frequency data. |
+| f.BodyGyro.mean.Y                  	| numeric | Radians/sec |		Body angular velocity, mean, Y axis. Frequency data. |
+| f.BodyGyro.mean.Z					| numeric | Radians/sec |		Body angular velocity, mean, Z axis. Frequency data. |
+| f.BodyGyro.sd.X						| numeric | Radians/sec |		Body angular velocity, standard deviation, X axis. Frequency data. |
+| f.BodyGyro.sd.Y                    	| numeric | Radians/sec |		Body angular velocity, standard deviation, Y axis. Frequency data. |
+| f.BodyGyro.sd.Z						| numeric | Radians/sec |		Body angular velocity, standard deviation, Z axis. Frequency data. |
+| f.BodyAccMag.mean					| numeric | Gravity (g) |		Magnitude of combined-axis body acceleration, mean. Frequency data. |
+| f.BodyAccMag.sd                    	| numeric | Gravity (g) |		Magnitude of combined-axis body acceleration, standard deviation. Frequency data. |
+| f.BodyAccJerkMag.mean				| numeric | Gravity (g) |		Jerk factor of combined-axis body acceleration, mean. Frequency data. |
+| f.BodyAccJerkMag.sd                	| numeric | Gravity (g) |		Jerk factor of combined-axis body acceleration, standard deviation. Frequency data. |
+| f.BodyGyroMag.mean					| numeric | Radians/sec |		Magnitude of combined-axis body angular velocity, mean. Frequency data. |
+| f.BodyGyroMag.sd					| numeric | Radians/sec |		Magnitude of combined-axis body angular velocity, standard deviation. Frequency data. |
+| f.BodyGyroJerkMag.mean				| numeric | Radians/sec |		Jerk factor of combined-axis body angular velocity, mean. Frequency data. |
+| f.BodyGyroJerkMag.sd               	| numeric | Radians/sec |		Jerk factor of combined-axis body angular velocity, standard deviation. Frequency data. |
